@@ -1,38 +1,95 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+
 
 export const Container = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 50px 0;
+    height: 5rem;
+    border-bottom: 1px solid #29292e;
 
-  a {
-    transition: opacity 0.2s;
-
-    &:hover {
-      opacity: 0.7;
-    }
-  }
 `;
 
-export const Cart = styled(Link)`
-  display: flex;
-  align-items: center;
-  text-decoration: none;
+export const Content = styled.div`
+    max-width: 1120px;
+    height: 5rem;
+    margin:  0 auto;
+    padding: 0 2rem;
 
-  div {
-    text-align: right;
-    margin-right: 10px;
+    display: flex;
+    align-items: center;
 
-    strong {
-      display: block;
-      color: #fff;
+    hgroup {
+        
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        h1{
+            
+            font-family: 'Roboto,sans-serif';
+            color: #fff;
+            display: block;
+            margin-block-start: 1.8rem;
+            font-size: 1.7rem;
+        }
+
+        p {
+            font-size: 0.75rem;
+            font-family: 'Roboto,sans-serif';
+            color: #fff;
+            margin-block-end: 2rem;
+        }    
     }
 
-    span {
-      font-size: 12px;
-      color: #999;
+
+    nav {
+        margin-left: 5rem;
+        height: 5rem;
+
+        a{
+
+            display: inline-block;
+            position: relative;
+            padding: 0 0.5rem;
+            height: 5rem;
+            line-height: 5rem;
+            color: var(--gray-300);
+            font-size: 0.9rem;
+            transition: color 0.2s;
+
+            svg {
+                padding-top: 0.10rem;
+                margin-right: 0.25rem;
+                width: 14px;
+                height: 14px;    
+            }
+
+            & + a {
+                margin-left: 2rem;
+            }
+
+            &:hover {
+                color: var(--white);
+            }
+
+            &.active {
+                color: var(--white);
+                font-weight: bold;
+            }
+
+            &.active::after {
+                content: '';
+                height: 3px;
+                border-radius: 3px 3px 0 0;
+                width: 100%;
+                position: absolute;
+                bottom: 1px;
+                left: 0;
+                background-color: var(--yellow-500);
+            }
+        }
     }
-  }
+
+    button {
+        margin-left: auto;
+    }
 `;
+

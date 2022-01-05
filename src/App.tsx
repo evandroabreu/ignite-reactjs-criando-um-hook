@@ -5,18 +5,25 @@ import { ToastContainer } from 'react-toastify';
 import Routes from './routes';
 import GlobalStyles from './styles/global';
 import Header from './components/Header';
-import { CartProvider } from './hooks/useCart';
+import { BetProvider } from './hooks/useBet';
+import { AuthProvider } from './hooks/useAuth';
+
 
 const App = (): JSX.Element => {
   return (
+    
     <BrowserRouter>
-      <CartProvider>
-        <GlobalStyles />
-        <Header />
-        <Routes />
-        <ToastContainer autoClose={3000} />
-      </CartProvider>
+    
+      <GlobalStyles />
+      <AuthProvider>
+        <BetProvider>    
+          <Header />    
+          <Routes />      
+          <ToastContainer autoClose={3000} />
+        </BetProvider>
+      </AuthProvider>
     </BrowserRouter>
+    
   );
 };
 

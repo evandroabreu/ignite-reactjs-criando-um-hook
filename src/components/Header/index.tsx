@@ -1,33 +1,39 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { MdShoppingBasket } from 'react-icons/md';
+import { Container, Content } from "./styles";
 
-import logo from '../../assets/images/logo.svg';
-import { Container, Cart } from './styles';
-import { useCart } from '../../hooks/useCart';
+import SigninButton from "../SigninButton";
 
-const Header = (): JSX.Element => {
-  const { cart } = useCart();
-  const cartSize = cart.length;
+import ActiveLink from "../ActiveLink";
+
+import { MdOutlineLiveTv, MdSportsSoccer, MdQueryStats, MdDescription } from 'react-icons/md'
+
+const Header = () => {
   
-
   return (
-    <Container>
-      <Link to="/">
-        <img src={logo} alt="Rocketshoes" />
-      </Link>
+      <Container>
+        <Content>
+          <hgroup>
+            <h1>HikeBets</h1>
+            <p>Apostas esportivas</p>
+          </hgroup>          
+          <nav>
+              <ActiveLink activeClassName="active" to="/">
+                  <><MdSportsSoccer/>Futebol</>
+              </ActiveLink>
+              <ActiveLink activeClassName="active" to="/aovivo">
+                  <><MdOutlineLiveTv/>Ao vivo</>
+              </ActiveLink>
+              <ActiveLink activeClassName="active" to="/regulamento">
+                  <><MdDescription/>Regulamento</>
+              </ActiveLink>
+              <ActiveLink activeClassName="active" to="/consulta">
+                  <><MdQueryStats/>Consultar Aposta</>
+              </ActiveLink>                                                                              
+          </nav>
 
-      <Cart to="/cart">
-        <div>
-          <strong>Meu carrinho</strong>
-          <span data-testid="cart-size">
-            {cartSize === 1 ? `${cartSize} item` : `${cartSize} itens`}
-          </span>
-        </div>
-        <MdShoppingBasket size={36} color="#FFF" />
-      </Cart>
-    </Container>
-  );
-};
+          <SigninButton/>          
+        </Content>
+      </Container>
+  )
+}
 
 export default Header;
