@@ -8,7 +8,6 @@ import Header from './components/Header';
 import { BetProvider } from './hooks/useBet';
 import { AuthProvider } from './hooks/useAuth';
 
-
 const App = (): JSX.Element => {
   return (
     
